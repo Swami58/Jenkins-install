@@ -1,3 +1,4 @@
+#!/bin/bash
 USERID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
@@ -47,4 +48,7 @@ systemctl enable jenkins &>>$LOGFILE
 VALIDATE $? "Enabling jenkins Server"
 
 systemctl  start jenkins &>>$LOGFILE
-VALIDATE $? "Enabling jenkins Server"
+VALIDATE $? "Starting jenkins Server"
+
+systemctl  status jenkins &>>$LOGFILE
+VALIDATE $? "status jenkins Server"
