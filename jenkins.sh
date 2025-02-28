@@ -7,8 +7,6 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
-echo "Please enter DB password:"
-read -s mysql_root_password
 VALIDATE(){
    if [ $1 -ne 0 ]
    then
@@ -37,7 +35,7 @@ VALIDATE $? "jenkin key imported"
 yum install fontconfig java-17-openjdk -y &>>$LOGFILE
 VALIDATE $? "Installing java"
 
-yum install jenkins -y y &>>$LOGFILE
+yum install jenkins -y  &>>$LOGFILE
 VALIDATE $? "Installing jenkins"
 
 systemctl daemon-reload &>>$LOGFILE
